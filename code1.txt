@@ -1,0 +1,46 @@
+Write a C program to count the total number divisible by both 5 and 9 only 5 and only 9 elements in an array.
+
+Sample Array: 35, 9, 19, 25, 27, 45
+Sample output: Both 5 and 9: 1, Only 5: 3, Only 9: 2
+
+#include <stdio.h>
+#define MAX_SIZE 1000
+
+int main()
+{
+    int arr[MAX_SIZE], arr_2[MAX_SIZE];
+    int i, N, count_5_9=0, count_5=0, count_9=0;
+
+
+    printf("Enter size of array: ");
+    scanf("%d", &N);
+
+    printf("Enter %d elements in the array : ", N);
+    for(i=0; i<N; i++)
+    {
+        scanf("%d", &arr[i]);
+        if(arr[i]%10 == 5 || arr[i]%10==9 || arr[i]%9==0 || arr[i]%5==0)
+            arr_2[i] = arr[i];
+        else
+        {
+            printf("%d is not divisible by 5 or 9\n", arr[i]);
+            i--;
+        }
+    }
+
+
+    for(i=0; i<N; i++)
+    {
+        if(arr_2[i] % 5 == 0 && arr_2[i] % 9 == 0)
+            count_5_9++;
+        if(arr_2[i] % 5 == 0)
+            count_5++;
+        if(arr_2[i] % 9 == 0)
+            count_9++;
+    }
+
+    printf("\nBoth 5 and 9: %d,", count_5_9);
+    printf("Only 5: %d,", count_5);
+    printf("Only 9: %d", count_9);
+    return 0;
+}

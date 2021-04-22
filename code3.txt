@@ -1,0 +1,46 @@
+write a c program to put even and odd 
+elements of an arrary in two separate arrays in reverse order.
+
+
+#include<stdio.h>
+
+int main()
+{
+    int Size, i, k,a[10], Even[10], Odd[10];
+    int Even_Count = 0, Odd_Count = 0;
+
+    printf("\n Enter the Size of an Array :  ");
+    scanf("%d", &Size);
+
+    printf("\n Enter the Array Elements  :   ");
+    for(i = 0; i < Size; i++)
+    {
+        scanf("%d", &a[i]);
+    }
+
+    for(i = 0; i < Size; i ++)
+    {
+        if(a[i] % 2 == 0)
+        {
+            Even[Even_Count] = a[i];
+            Even_Count++;
+        }
+        else
+        {
+            Odd[Odd_Count] = a[i];
+            Odd_Count++;
+        }
+    }
+
+    printf("Even[");
+    for(i = Even_Count-1; i >= 0; i--)
+        printf(" %d ", Even[i]);
+    printf("]");
+
+    printf(" and Odd[");
+    for(i = Odd_Count-1; i >= 0; i--)
+        printf(" %d ", Odd[i]);
+    printf("]");
+
+    return 0;
+}
